@@ -82,13 +82,11 @@ for dt in downtime_list:
                     cano_rrule += days_of_weeks[d] + ","
                 
                 cano_rrule = cano_rrule.strip(',')
-                # rdowntime_id_dict.update({ dt['id']: { 'rrule': cano_rrule_week,'tstart':'','tstop':'','svc_dep': [], 'host_dep': [] }})
-                    
+
             #check if this rr is monthly
             if r['month cycle'] == "none" and r['day of week'] == "":
                 cano_rrule = "RRULE:FREQ=MONTHLY;BYMONTHDAY=" + r['day of month']
-                # rdowntime_id_dict.update({ dt['id']: { 'rrule': cano_rrule_month,'tstart':'','tstop':'', 'svc_dep': [], 'host_dep': [] }})
-            
+
             #check if this rr is spec 
             if r['month cycle'] != 'none' and r['month cycle'] != 'all':
                 cano_rrule = 'RRULE:FREQ=MONTHLY;BYDAY='
@@ -151,3 +149,4 @@ print(rdowntime_id_dict)
 
 
 # build api v4 pdh object canopsis
+
